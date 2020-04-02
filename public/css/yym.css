@@ -1,0 +1,8 @@
+input:checked + label {
+    color: #fff;
+    background: #f7a916;
+}
+
+.holiday{
+    color: red !important;
+}
