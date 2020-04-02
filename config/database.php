@@ -46,33 +46,39 @@ return [
         
         'pro' => [
             'driver' => 'mysql',
-            'host' => 'localhost',
-            'port' => '3306',
-            'database' => 'kidzmeal_pro_dev',
-            'username' => 'root',
-            'password' => '',
-            'unix_socket' => '',
+            'host' => env('DB_HOST_PRO', '127.0.0.1'),
+            'port' => env('DB_PORT_PRO', '3306'),
+            'database' => env('DB_DATABASE_PRO', 'kidzmeal_pro_dev'),
+            'username' => env('DB_USERNAME_PRO', 'forge'),
+            'password' => env('DB_PASSWORD_PRO', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
         ],
 
 
         'buono_main' => [
             'driver' => 'mysql',
-            'host' => 'localhost',
-            'port' => '3306',
-            'database' => 'kidzmeal_buono_main_dev',
-            'username' => 'root',
-            'password' => '',
-            'unix_socket' => '',
+            'host' => env('DB_HOST_SECOND', '127.0.0.1'),
+            'port' => env('DB_PORT_SECOND', '3306'),
+            'database' => env('DB_DATABASE_SECOND', 'kidzmeal_buono_main_dev'),
+            'username' => env('DB_USERNAME_SECOND', 'forge'),
+            'password' => env('DB_PASSWORD_SECOND', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
         ],
 
         'mysql' => [
