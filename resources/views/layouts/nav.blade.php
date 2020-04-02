@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ml-sm-3 mx-auto">
-            <a class="nav-link" href="/monthly_menu/2020-03">
+            <a class="nav-link" href="#">
               <img src="{{asset('img/pict_calendar.png')}}" alt="calendar">
             </a>
           </li>
