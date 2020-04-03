@@ -67,7 +67,7 @@
                     </p>
                     <a href="#"><i class="fas fa-chevron-circle-right"></i></a>
                 </div>
-                <a href="#"><img src="img/pdfIcon.png" alt=""></a>
+                <a href="#"><img src="{{asset('img/pdfIcon.png')}}" alt=""></a>
             </div>
         </div>
         
