@@ -38,7 +38,7 @@
                     </p>
                     <a href="{{route('menu.monthly_menu', array_merge($defaultOpts, ['yearMonth' => $nextMonth]))}}"><i class="fas fa-chevron-circle-right"></i></a>
                 </div>
-                <a href="#"><img src="img/pdfIcon.png" alt=""></a>
+                <a href="#"><img src="{{asset('img/pdfIcon.png')}}" alt=""></a>
             </div>
         </div>
         <div class="container food_age_div my-4">
