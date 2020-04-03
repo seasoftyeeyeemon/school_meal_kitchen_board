@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/all.css')}}">
-    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 @endpush
 @push('custom_js')
     <script src="{{asset('js/all.js')}}"></script>
