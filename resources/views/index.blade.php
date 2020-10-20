@@ -1,8 +1,61 @@
-@extends('layouts.nav')
-@section('title')
-  <title>トップ</title>
-@endsection
-@section('content')
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    @stack('custom_css')
+
+    @stack('custom_js')
+    @yield('title')
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-navbar-custom">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ml-sm-3 mx-auto">
+            <a class="nav-link" href="#">
+              <img src="{{asset('img/new_icon/pict_callendar.png')}}" alt="calendar">
+            </a>
+          </li>
+          <li class="nav-item ml-sm-2 mx-auto">
+            <a class="nav-link" href="#">
+              <img src="{{asset('img/new_icon/pict_stock.png')}}" alt="stock">
+            </a>
+          </li>
+          <li class="nav-item ml-sm-2 mx-auto">
+            <a class="nav-link" href="#">
+              <img src="{{asset('img/new_icon/pict_order.png')}}" alt="order">
+            </a>
+          </li>
+         
+        </ul>
+        <ul class="navbar-nav mx-auto d-none d-sm-block navbar-title">
+          <li class="nav-item">
+            <a class="nav-link text-white navbar-title-link" href="#">
+              給食室ボードカレンダー
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-auto">
+            <a class="nav-link" href="#">
+              <img src="{{asset('img/new_icon/pict_chat.png')}}" alt="chat" />
+            </a>
+          </li>
+        </ul>
+     
+      </div>
+    </nav>
     <div class="page-wrapper">
       <div class="banner-page">
         <div class="container-fluid">
@@ -47,5 +100,6 @@
           
       </div>
     </div>
-@endsection
+</body>
+</html>
    

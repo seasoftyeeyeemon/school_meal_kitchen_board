@@ -111,7 +111,7 @@
                     </center>
                  @endif
                   <div class="form-group mt-4 position-relative">
-                    <img class="position-absolute form--input_img" src="./img/pict_user.png" alt="">
+                    <img class="position-absolute form--input_img" src="./img/new_icon/pict_user.png" alt="" style="width:28px; height:28px;">
                     <input type="text" class="form-control pl-5 form--input" placeholder="ユーザーネーム" name="username">
                   </div>
                   <div class="form-group mt-4 position-relative">

@@ -81,7 +81,7 @@ class LoginController extends Controller
         //     return $this->sendLoginResponse($request);
         // }
 
-            $kinder = User::where("email",$request->username)
+            $kinder = User::where("username",$request->username)
             ->where('use_flg',1)
             ->first();
             if(!empty($kinder)){
@@ -109,14 +109,14 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
-         $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath('/'));
+        dd( $this->authenticated($request, $this->guard()->user())
+                ?: redirect()->intended($this->redirectPath('/')));
     }
 
     protected function authenticated(Request $request, $user)
     {
         
-        return redirect()->intended('/');   
+        return redirect()->intended('/index');   
     }
 
 

@@ -1,27 +1,31 @@
-@extends('layouts.nav')
+  @extends('layouts.nav')
+@section('backLink'){{url()->previous()}}@endsection
 @section('title')
   <title>献立メニューについて - 単品</title>
 @endsection
-@push('custom_js')
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-@endpush
+
 
 <?php
   use App\Syokuzai;
+  use App\Kondate2;
+  use App\Kondate3;
+  use App\Ryouri2;
 ?>
 @section('content')
     <div class="page-wrapper">
       <div class="menu-single-item-page">
-        <div class="menu-single-item-title">鮭の塩焼き</div>
+    <?php
+     $kondate2 =Kondate2::find($kondate_2_id);
+    ?>
+        <div class="menu-single-item-title">{{ $kondate2->name_1}}</div>
         <div class="container-fluid">
           <div class="row mt-4">
+     
             <!-- <div class="col-6">
               <img class="img-fluid w-100" src="{{$ryouri_image->img_1? $ryouri_image->img_1 : $no_image}}" alt="meal">
             </div> -->
             <div class="col-lg-6 col-md-12 col-sm-6 single-dish">
-              <img class="img-fluid w-100" src="{{$ryouri_image->img_1? $ryouri_image->img_1 : $no_image}}" alt="meal">
+              <img class="img-fluid w-100" src="/get-dishImage/{{ $ryouri_id[0] }}" >
             </div>
             <div class="col-6 ipad-hidden">          
               @if(!empty($instructions))
@@ -49,16 +53,15 @@
             <div class="col-12">
               <div class="display-items">
                 <h4> アレルギー表示項目（タップして詳細表示）</h4>
-                @foreach($calories as $calorie)
-                @foreach($calorie as $allergie)
+                <ul class="display-items-list">
                   <?php
-                  $syokuzai =new Syokuzai();
-                  $allergies_infos =$syokuzai->getAllergies($allergie['id']);
-                  
+                  $kondate2 =Kondate2::find($kondate_2_id);
+                  $allergies_infos =$kondate2->getAllergies();
+
                   ?>
                   @if(count($allergies_infos) > 0)
                    
-                   <ul class="display-items-list">
+                   
                    @foreach ($allergies_infos as $key=>$value)
                    @if($value['status']==1)
                      <li class="item">
@@ -68,11 +71,12 @@
                    @endif 
 
                    @endforeach
-                   </ul>
+                  
                  @endif
-                @endforeach
-                @endforeach
+             
                 
+               
+                </ul>
                 <!-- <h4>栄養成分表示</h4>
                 <ul class="display-items-list items-list_2">
                   @if(!empty($ingredients))
@@ -113,11 +117,20 @@
               <div class="materials-title">材料 <span>（1人分）</span></div>
               <div class="materials">
                 <ul class="materials-list">
-                  @foreach ($calories as $calorie)
-                  
-                  @foreach($calorie as $name)
-                    <li>{{$name['syokuzai_name_1']}}<span>45.00g</span></li>
-                  @endforeach
+                <?php
+            
+                  $kondate3_records =Kondate3::where('kondate_2_id',$kondate_2_id)->get();
+                ?>
+                  @foreach ($kondate3_records as $record)
+                    <li>
+                    @if(isset($record->syokuzai_name_6))
+                        {{$record->syokuzai_name_6}}
+                      @elseif(isset($record->syokuzai_name_1))
+                        {{$record->syokuzai_name_1}}
+                    @endif
+                    <span>{{$record->siyou_ryou}}g</span>
+                    </li>
+                
                   @endforeach
                 </ul>
               </div>
